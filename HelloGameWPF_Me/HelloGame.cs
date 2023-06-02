@@ -37,7 +37,7 @@ namespace HelloGameWPF_Me
 
         internal static string Guess(bool higher)
         {
-            string prompt = "";
+            string prompt;
             if ((nextNumber >= currentNumber && higher) || (nextNumber <= currentNumber && !higher))
             {
                 prompt = "Correct!";

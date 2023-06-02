@@ -34,7 +34,7 @@ namespace HelloGameWPF_Me
             currentNumber.Text = $"Current Number\n{HelloGame.CurrentNumber()}";            
 
         }
-        private void higher_Click(object sender, RoutedEventArgs e)
+        private void Higher_Click(object sender, RoutedEventArgs e)
         {
             prompt.Text = HelloGame.Guess(true).ToString();
             pot.Text = HelloGame.GetPot().ToString();
@@ -42,7 +42,7 @@ namespace HelloGameWPF_Me
             currentNumber.Text = $"Current Number\n{HelloGame.CurrentNumber()}";
         }
 
-        private void lower_Click(object sender, RoutedEventArgs e)
+        private void Lower_Click(object sender, RoutedEventArgs e)
         {
             prompt.Text = HelloGame.Guess(false).ToString(); 
             pot.Text = HelloGame.GetPot().ToString();
@@ -50,14 +50,14 @@ namespace HelloGameWPF_Me
             currentNumber.Text = $"Current Number\n{HelloGame.CurrentNumber()}";
         }
 
-        private void hint_Click(object sender, RoutedEventArgs e)
+        private void Hint_Click(object sender, RoutedEventArgs e)
         {
 
             pot.Text = HelloGame.GetPot().ToString();
             nextNumber.Text = HelloGame.Hint();
         }
 
-        private void cheat_Click(object sender, RoutedEventArgs e)
+        private void Cheat_Click(object sender, RoutedEventArgs e)
         {
             cheatOutput.Text = HelloGame.Cheat();
             pot.Text = HelloGame.GetPot().ToString();
