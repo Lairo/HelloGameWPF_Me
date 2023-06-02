@@ -22,27 +22,45 @@ namespace HelloGameWPF_Me
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
+            Start();
+            
         }
 
+        void Start()
+        {
+            HelloGame.Hint();
+            pot.Text = $"The pot {HelloGame.GetPot()}.";
+            currentNumber.Text = $"Current Number\n{HelloGame.CurrentNumber()}";            
+
+        }
         private void higher_Click(object sender, RoutedEventArgs e)
         {
-
+            prompt.Text = HelloGame.Guess(true).ToString();
+            pot.Text = HelloGame.GetPot().ToString();
+            nextNumber.Text = $"Next Number ?";
+            currentNumber.Text = $"Current Number\n{HelloGame.CurrentNumber()}";
         }
 
         private void lower_Click(object sender, RoutedEventArgs e)
         {
-
+            prompt.Text = HelloGame.Guess(false).ToString(); 
+            pot.Text = HelloGame.GetPot().ToString();
+            nextNumber.Text = $"Next Number ?";
+            currentNumber.Text = $"Current Number\n{HelloGame.CurrentNumber()}";
         }
 
         private void hint_Click(object sender, RoutedEventArgs e)
         {
 
+            pot.Text = HelloGame.GetPot().ToString();
+            nextNumber.Text = HelloGame.Hint();
         }
 
         private void cheat_Click(object sender, RoutedEventArgs e)
         {
-            hintAndCheatOutput.Text = "Bob";
+            cheatOutput.Text = HelloGame.Cheat();
+            pot.Text = HelloGame.GetPot().ToString();
         }
     }
 }

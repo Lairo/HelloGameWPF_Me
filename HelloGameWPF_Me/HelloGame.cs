@@ -14,43 +14,53 @@ namespace HelloGameWPF_Me
         static private int nextNumber = random.Next(1, MAXIMUM + 1);
         static private int pot = 10;
 
-        internal static void Cheat()
+        internal static string Cheat()
         {
             random = new Random(1);
             Random cheatRandom = new Random(1);
-            Console.WriteLine("The first 20 numbers will be: ");
+
+            string cheatValue = " ";
+
+            cheatValue += "The first 20 numbers will be: \n";
 
             for (int i = 0; i < 20; i++)
             {
-                Console.Write(cheatRandom.Next(1, MAXIMUM + 1) + " ");
+                cheatValue += $"{cheatRandom.Next(1, MAXIMUM + 1)} ";
             }
+
+            return cheatValue;
         }
 
         internal static int GetPot(){ return pot; }
+        internal static int CurrentNumber() { return currentNumber; }
+        internal static int NextNumber() {  return nextNumber; }
 
-        internal static void Guess(bool higher)
+        internal static string Guess(bool higher)
         {
+            string prompt = "";
             if ((nextNumber >= currentNumber && higher) || (nextNumber <= currentNumber && !higher))
             {
-                Console.WriteLine("\nYou guessed right!");
+                prompt = "Correct!";
                 pot++;
             
             } else
             {
-                Console.WriteLine("\nBad luck, you guessed wrong.");
+                prompt = "Wrong.";
                 pot--;
             }
 
             currentNumber = nextNumber;
             nextNumber = random.Next(1, MAXIMUM + 1);
-            Console.WriteLine($"\nThe current number is {currentNumber}.");
+            return prompt;
         }
 
-        internal static void Hint()
+        internal static string Hint()
         {
             float half = (float)nextNumber / 2;
-            Console.WriteLine($"\nThe current number is {currentNumber}, the next is at least {half}.");
+            string hint = $"At least {half}.";
             pot--;
+            return hint;
+            
         }
     }
 }
