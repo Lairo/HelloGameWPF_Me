@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hello
+namespace HelloGameWPF_Me
 {
     internal static class HelloGame
     {

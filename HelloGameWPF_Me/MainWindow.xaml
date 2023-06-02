@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelloGameWPF_Me"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Hello Game" Height="225" Width="300">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="higher" Content="Higher" HorizontalAlignment="Center" VerticalAlignment="Center" Click="higher_Click" FontSize="16" BorderThickness="2,2,2,2" Padding="2"/>
+        <Button x:Name="lower" Grid.Column="1" Content="Lower" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Click="lower_Click" BorderThickness="2,2,2,2" Padding="2"/>
+        <Button x:Name="hint" Content="Hint" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="16" Click="hint_Click" BorderThickness="2,2,2,2" Padding="2"/>
+        <Button x:Name="cheat" Grid.Column="1" Content="Cheat" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="16" Click="cheat_Click" BorderThickness="2,2,2,2" Padding="2"/>
+        <TextBlock x:Name="gameOutput" HorizontalAlignment="Center" Grid.Row="1" Text="Number" VerticalAlignment="Center" FontSize="16"/>
+        <TextBlock x:Name="cheatOutput" HorizontalAlignment="Center" Grid.Row="1" Text="Next number ?" VerticalAlignment="Center" FontSize="16" Grid.Column="1"/>
+        <TextBlock x:Name="hintAndCheatOutput" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontSize="16" Grid.ColumnSpan="2"/>
+
     </Grid>
 </Window>

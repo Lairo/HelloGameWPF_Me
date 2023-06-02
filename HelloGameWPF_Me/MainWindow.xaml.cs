@@ -24,5 +24,25 @@ namespace HelloGameWPF_Me
         {
             InitializeComponent();
         }
+
+        private void higher_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void lower_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void hint_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cheat_Click(object sender, RoutedEventArgs e)
+        {
+            hintAndCheatOutput.Text = "Bob";
+        }
     }
 }
