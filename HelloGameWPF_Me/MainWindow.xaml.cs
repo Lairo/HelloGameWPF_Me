@@ -20,47 +20,48 @@ namespace HelloGameWPF_Me
     /// </summary>
     public partial class MainWindow : Window
     {
+        HelloGame helloGame = new HelloGame();
         public MainWindow()
         {
             InitializeComponent();            
             Start();
-            
         }
 
         void Start()
         {
-            HelloGame.Hint();
-            pot.Text = $"The pot {HelloGame.GetPot()}.";
-            currentNumber.Text = $"Current Number\n{HelloGame.CurrentNumber()}";            
+            helloGame.Hint();
+            pot.Text = $"The pot {helloGame.Pot}.";
+            currentNumber.Text = $"Current Number\n{helloGame.CurrentNumber}";            
 
         }
         private void Higher_Click(object sender, RoutedEventArgs e)
         {
-            prompt.Text = HelloGame.Guess(true).ToString();
-            pot.Text = HelloGame.GetPot().ToString();
+            prompt.Text = helloGame.Guess(true).ToString();
+            pot.Text = helloGame.Pot.ToString();
             nextNumber.Text = $"Next Number ?";
-            currentNumber.Text = $"Current Number\n{HelloGame.CurrentNumber()}";
+            currentNumber.Text = $"Current Number\n{helloGame.CurrentNumber}";
         }
 
         private void Lower_Click(object sender, RoutedEventArgs e)
         {
-            prompt.Text = HelloGame.Guess(false).ToString(); 
-            pot.Text = HelloGame.GetPot().ToString();
+            prompt.Text = helloGame.Guess(false).ToString(); 
+            pot.Text = helloGame.Pot.ToString();
             nextNumber.Text = $"Next Number ?";
-            currentNumber.Text = $"Current Number\n{HelloGame.CurrentNumber()}";
+            currentNumber.Text = $"Current Number\n{helloGame.CurrentNumber}";
         }
 
         private void Hint_Click(object sender, RoutedEventArgs e)
         {
 
-            pot.Text = HelloGame.GetPot().ToString();
-            nextNumber.Text = HelloGame.Hint();
+            pot.Text = helloGame.Pot.ToString();
+            nextNumber.Text = helloGame.Hint();
         }
 
         private void Cheat_Click(object sender, RoutedEventArgs e)
         {
-            cheatOutput.Text = HelloGame.Cheat();
-            pot.Text = HelloGame.GetPot().ToString();
+            Start();
+            cheatOutput.Text = helloGame.Cheat();
+            pot.Text = helloGame.Pot.ToString();
         }
     }
 }

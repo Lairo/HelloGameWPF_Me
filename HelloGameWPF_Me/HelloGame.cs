@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HelloGameWPF_Me
 {
-    internal static class HelloGame
+    internal class HelloGame
     {
         public const int MAXIMUM = 10;
         private static Random random = new Random();
-        static private int currentNumber = random.Next(1, MAXIMUM + 1);
-        static private int nextNumber = random.Next(1, MAXIMUM + 1);
-        static private int pot = 10;
 
-        internal static string Cheat()
+        private int currentNumber = random.Next(1, MAXIMUM + 1);
+        private int nextNumber = random.Next(1, MAXIMUM + 1);
+        private int pot = 10;
+
+        public string Cheat()
         {
             random = new Random(1);
             Random cheatRandom = new Random(1);
@@ -31,36 +28,63 @@ namespace HelloGameWPF_Me
             return cheatValue;
         }
 
-        internal static int GetPot(){ return pot; }
-        internal static int CurrentNumber() { return currentNumber; }
-        internal static int NextNumber() {  return nextNumber; }
+        public int Pot
+        {
+            get { return pot; }
+            set { pot = value; }
+        }
 
-        internal static string Guess(bool higher)
+        public int CurrentNumber
+        {
+            get { return currentNumber; }
+            set
+            {
+                currentNumber = value;
+            }
+        }
+
+        public int NextNumber
+        {
+            get { return nextNumber; }
+            set
+            {
+                nextNumber = value;
+            }
+        }
+
+
+        public string Guess(bool higher)
         {
             string prompt;
-            if ((nextNumber >= currentNumber && higher) || (nextNumber <= currentNumber && !higher))
+            if ((NextNumber >= CurrentNumber && higher) || (NextNumber <= CurrentNumber && !higher))
             {
                 prompt = "Correct!";
-                pot++;
-            
-            } else
+                Pot++;
+            }
+            else
             {
                 prompt = "Wrong.";
-                pot--;
+                Pot--;
             }
 
-            currentNumber = nextNumber;
-            nextNumber = random.Next(1, MAXIMUM + 1);
+            CurrentNumber = NextNumber;
+            NextNumber = random.Next(1, MAXIMUM + 1);
             return prompt;
         }
 
-        internal static string Hint()
+        public string Hint()
         {
-            float half = (float)nextNumber / 2;
+            float half = (float)NextNumber / 2;
             string hint = $"At least {half}.";
-            pot--;
+            Pot--;
             return hint;
-            
+
         }
+
+        public HelloGame()
+        {
+
+        }
+
     }
 }
